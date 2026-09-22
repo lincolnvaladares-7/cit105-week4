@@ -10,18 +10,18 @@ st.set_page_config(page_title='CIT 105 Invoice App', page_icon='🧾', layout='w
 st.title('🧾 Invoice Builder')
 
 if 'items' not in st.session_state:
-    st.session_state.items = [{'id': 0, 'description': '', 'quantity': '1', 'unit_price': '0.00'}]
+    st.session_state["items"] = [{'id': 0, 'description': '', 'quantity': '1', 'unit_price': '0.00'}]
 if 'next_id' not in st.session_state:
     st.session_state.next_id = 1
 
 
 def add_item():
-    st.session_state.items.append({'id': st.session_state.next_id, 'description': '', 'quantity': '1', 'unit_price': '0.00'})
+    .append({'id': st.session_state.next_id, 'description': '', 'quantity': '1', 'unit_price': '0.00'})
     st.session_state.next_id += 1
 
 
 def remove_item(item_id):
-    st.session_state.items = [item for item in st.session_state.items if item['id'] != item_id]
+     = [item for item in  if item['id'] != item_id]
 
 
 def load_selected(name):
@@ -32,10 +32,10 @@ def load_selected(name):
     st.session_state.invoice_date = date.fromisoformat(data.get('date'))
     st.session_state.discount_percent = str(data.get('discount_percent', '0'))
     st.session_state.tax_percent = str(data.get('tax_percent', '0'))
-    st.session_state.items = []
+     = []
     for idx, item in enumerate(data.get('items', [])):
-        st.session_state.items.append({'id': idx, 'description': item.get('description',''), 'quantity': str(item.get('quantity','1')), 'unit_price': str(item.get('unit_price','0.00'))})
-    st.session_state.next_id = len(st.session_state.items)
+        .append({'id': idx, 'description': item.get('description',''), 'quantity': str(item.get('quantity','1')), 'unit_price': str(item.get('unit_price','0.00'))})
+    st.session_state.next_id = len()
 
 with st.sidebar:
     st.header('Saved invoices')
@@ -73,7 +73,7 @@ with r2:
 
 try:
     clean_items = []
-    for item in st.session_state.items:
+    for item in st.session_state["items"]:
         qty = Decimal(item['quantity'].strip() or '0')
         price = money(item['unit_price'].strip() or '0')
         total = line_total(qty, price)
