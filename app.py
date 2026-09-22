@@ -21,7 +21,14 @@ def add_item():
         'description': '',
         'quantity': '1',
         'unit_price': '0.00'
+  def add_item():
+    st.session_state["items"].append({
+        "id": st.session_state.next_id,
+        "description": "",
+        "quantity": "1",
+        "unit_price": "0.00"
     })
+    st.session_state.next_id += 1
     st.session_state.next_id += 1
 
 def remove_item(item_id):
