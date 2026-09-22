@@ -42,7 +42,7 @@ def load_selected(name):
             "quantity": str(item.get("quantity", "1")),
             "unit_price": str(item.get("unit_price", "0.00"))
         }) 
-   st.session_state.next_id = len(st.session_state["items"])
+       st.session_state.next_id = len(st.session_state["items"])
 with st.sidebar:
     st.header('Saved invoices')
     saved = list_invoices()
