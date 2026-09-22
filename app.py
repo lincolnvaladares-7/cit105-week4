@@ -34,7 +34,7 @@ def load_selected(name):
     st.session_state.invoice_date = date.fromisoformat(data.get('date'))
     st.session_state.discount_percent = str(data.get('discount_percent', '0'))
     st.session_state.tax_percent = str(data.get('tax_percent', '0'))
-     = []
+    st.session_state["items"] = []
     for idx, item in enumerate(data.get('items', [])):
         .append({'id': idx, 'description': item.get('description',''), 'quantity': str(item.get('quantity','1')), 'unit_price': str(item.get('unit_price','0.00'))})
     st.session_state.next_id = len()
