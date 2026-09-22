@@ -16,7 +16,7 @@ if 'next_id' not in st.session_state:
 
 
 def add_item():
-    st.session_state["items"].append({
+  st.session_state["items"].append(
         'id': st.session_state.next_id,
         'description': '',
         'quantity': '1',
