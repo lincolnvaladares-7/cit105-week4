@@ -54,7 +54,7 @@ with c2:
     invoice_date = st.date_input('Invoice date', value=date.today(), key='invoice_date')
 
 st.subheader('Line items')
-for item in list(st.session_state.items):
+for item in list(st.session_state["items"]):
     cols = st.columns([4, 1, 2, 1])
     item['description'] = cols[0].text_input('Description', value=item['description'], key=f"desc_{item['id']}")
     item['quantity'] = cols[1].text_input('Qty', value=item['quantity'], key=f"qty_{item['id']}")
